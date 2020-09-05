@@ -36,18 +36,23 @@ let cavaliers = {
 
 let pontuacao = {
     ganhou: function() {
-        if (lakers.media() == golden.media() && lakers.media() == cavaliers.media()) {
+        if (lakers.media() == golden.media() && lakers.media() == cavaliers.media() &&
+            golden.media() == lakers.media() && golden.media() == cavaliers.media() &&
+            cavaliers.media() == lakers.media() && cavaliers.media() == golden.media()) {
             console.log('Empate entre a pontuação dos times');
         } else {
             if (lakers.media() > golden.media() && lakers.media() > cavaliers.media()) {
-                console.log('Los Angeles Lakers ganhou com:', lakers.media(), 'pontos');
+                return lakers.media();
             } else if (golden.media() > lakers.media() && golden.media() > cavaliers.media()) {
-                console.log('Golden State Warriors ganhou com:', golden.media(), 'pontos');
+                return golden.media();
             } else if (cavaliers.media() > lakers.media() && cavaliers.media() > golden.media()) {
-                console.log('Cleveland Cavaliers ganhou com:', cavaliers.media(), 'pontos');
+                return cavaliers.media();
             }
         }
     }
 }
 
-console.log(pontuacao.ganhou());
+console.log(`Lakers: ${lakers.media()}`);
+console.log(`Golden: ${golden.media()}`);
+console.log(`Cavaliers: ${cavaliers.media()}`);
+console.log(`A maior pontuação foi ${pontuacao.ganhou()}`);
