@@ -79,9 +79,13 @@ let maxBatimentos = calculaArray(idades, maxBatimentosCardiacos);
 function perguntasEmUmaEntrevista(area) {
     switch (area) {
         case 'programação':
-            return function(nome) { // função anonima
+            return function(nome, idade) { // função anonima
+                if (idade > 60) {
+                    console.log(nome + ' qual linguagem voce programa?' + idade + ' anos é sua idade.');
+                } else {
+                    console.log('Você não pode se candidatar a essa vaga');
+                }
 
-                console.log(nome + ' qual linguagem voce programa?');
             }
         case 'designer':
             return function(nome) {
@@ -100,7 +104,7 @@ perguntaParaProgramador('João');
 let perguntaParaDesigner = perguntasEmUmaEntrevista('designer');
 perguntaParaDesigner('Veronica');
 
-perguntasEmUmaEntrevista('designer')('Bruno'); // vai viavel
+perguntasEmUmaEntrevista('designer')('Bruno', 29); // mais viavel
 
 
 function quantoTempoParaAposentar(sexo) {
